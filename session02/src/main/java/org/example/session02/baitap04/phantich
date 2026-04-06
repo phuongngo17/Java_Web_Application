@@ -1,0 +1,27 @@
+XSS là gì? Tại sao <c:out value="${keyword}"/> an toàn hơn ${keyword} trong trường hợp này? So sánh HTML output được sinh ra khi input là <script>alert(1)</script>.
+XSS (Cross-Site Scripting)
+Là lỗ hổng khi:
+Dữ liệu người dùng được render trực tiếp ra HTML mà không escape
+
+Giải thích sự khác nhau giữa <c:if> và <c:choose>/<c:when>/<c:otherwise>. Trong bài này, phần hiển thị “Giá vé” và “Vé còn lại” nên dùng loại nào? Tại sao?
+<c:if>
+Dùng cho 1 điều kiện đơn
+Không có else
+<c:choose>
+Giống switch-case
+Có:
+<c:when>
+<c:otherwise>
+
+<c:url> giải quyết vấn đề gì so với hardcode href="/events/1/book"? Điều gì xảy ra khi ứng dụng được deploy với context path /ticketing thay vì /?
+Hardcode:
+href="/events/1/book"
+Nếu deploy:
+http://localhost:8080/ticketing
+-> link thành:
+http://localhost:8080/events/1/book
+
+<c:url>:
+<c:url value="/events/${event.id}/book"/>
+->tự động thêm context:
+/ticketing/events/1/book

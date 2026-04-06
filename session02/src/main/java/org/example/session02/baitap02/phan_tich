@@ -1,0 +1,13 @@
+Phần 1 — Phân tích logic
+#	Vị trí	                                        Loại vấn đề	                                    Mô tả chi tiết hậu quả
+1	<%! private int requestCounter = 0; %>	       Race Condition + Shared State	                Biến khai báo bằng Declaration là biến instance của Servlet, dùng chung cho mọi request → nhiều user truy cập đồng thời sẽ ghi đè dữ liệu → sai số liệu, không thread-safe
+2	<% requestCounter++; %>	                       Business Logic trong View (Code smell)	        JSP đáng ra chỉ hiển thị dữ liệu, nhưng lại xử lý logic → vi phạm nguyên tắc Thin View → khó maintain, khó test
+3	<%= student.getName(); %>	                   Expression (old style)	                        Dùng <%= %> thay vì EL → code khó đọc, không tách biệt MVC, không tận dụng được scope (request/session)
+4	Vòng lặp <% for(...) { %>	                   Scriptlet loop	                                Viết loop Java trong JSP → phá vỡ separation of concerns → không dùng được JSTL → khó bảo trì
+5	<!-- <%= student.getName() %> -->	           Sai loại comment (HTML vs JSP)	                HTML comment vẫn render ở server → code Java vẫn chạy → có thể leak dữ liệu nhạy cảm
+6	<%= student.getScore() %> (không escape)	   XSS (Cross-site scripting)	                    Nếu dữ liệu chứa script → render trực tiếp ra HTML → có thể bị inject JS độc
+7	<%= request.getAttribute("list") %>;	       Syntax lỗi (dấu ;)	                            Expression <%= %> không cần ; → dễ gây lỗi compile JSP
+8	if/else trong <% %>	                           Logic điều kiện trong View	                    Điều kiện hiển thị nên dùng JSTL <c:choose> → rõ ràng hơn, không trộn Java
+9	Import lung tung <%@ page import="..." %>	   Tight coupling	                                JSP phụ thuộc trực tiếp vào class → khó refactor
+10	Không dùng EL scope (${})	                   Sai chuẩn MVC	                                Không tận dụng được requestScope, sessionScope → code rối
+
