@@ -1,0 +1,24 @@
+package org.example.ss04.bai1.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
+
+    private OrderRepository orderRepository;
+
+    @Autowired
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = new OrderRepository();
+    }
+
+    public String getAllOrders() {
+        return orderRepository.getAllOrders();
+    }
+
+    public String getOrderById(Long id) {
+        return orderRepository.getOrderById(id);
+    }
+
+}

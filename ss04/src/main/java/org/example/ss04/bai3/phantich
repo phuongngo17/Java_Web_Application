@@ -1,0 +1,13 @@
+Cách A: /bai3/orders/5
+Số 5 nằm trong:
+URI Path (đường dẫn URL)
+Cấu trúc:
+/bai3/orders/{id}
+dùng annotation @PathVariable
+
+Cách B: /bai3/orders?id=5
+Số 5 nằm trong:
+Query String (chuỗi truy vấn)
+dùng annotation @RequestParam
+
+Lấy 1 đối tượng cụ thể theo ID nên dùng: Cách A (@PathVariable)
