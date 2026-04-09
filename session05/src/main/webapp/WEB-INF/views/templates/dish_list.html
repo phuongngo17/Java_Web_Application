@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Danh sách món ăn</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2>Danh sách thực đơn</h2>-->
+
+<!--<div th:if="${dish == null or #lists.isEmpty(dish)}">-->
+<!--    <p style="color: gray;">-->
+<!--        Hiện tại nhà hàng đang cập nhật thực đơn, vui lòng quay lại sau-->
+<!--    </p>-->
+<!--</div>-->
+
+<!--<table border="1" th:unless="${dish == null or #lists.isEmpty(dish)}">-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Tên món</th>-->
+<!--        <th>Giá</th>-->
+<!--        <th>Trạng thái</th>-->
+<!--        <th>Hành động</th>-->
+<!--    </tr>-->
+
+<!--    <tr th:each="dish : ${dish}">-->
+<!--        <td th:text="${dish.id}"></td>-->
+<!--        <td th:text="${dish.name}"></td>-->
+<!--        <td th:text="${dish.price}"></td>-->
+
+<!--        <td>-->
+<!--            <span th:if="${dish.available}" style="color: green;">-->
+<!--                Còn hàng-->
+<!--            </span>-->
+<!--            <span th:unless="${dish.available}" style="color: red;">-->
+<!--                Hết hàng-->
+<!--            </span>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <a th:href="@{/bai3/edit/{id}(id=${dish.id})}">-->
+<!--                Chỉnh sửa-->
+<!--            </a>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--Bài 4-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <title>Danh sách món ăn</title>
+</head>
+
+<body>
+
+<section layout:fragment="content">
+    <h2>Danh sách món ăn</h2>
+    <p>Hiển thị danh sách...</p>
+</section>
+
+</body>
+</html>

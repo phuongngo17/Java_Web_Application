@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+<!-- th:text: tương đương với c:out-->
+<!--th:each tương đương với c:foreach-->
+<!--th:if tương được với c:if-->
+<!--th:unless-->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${shop}" th:object="${p}">
+            <td>1</td>
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{price}"></td>
+            <td th:text="*{stock}"></td>
+            <td th:text="*{status} ? 'Còn bán': 'Hết hàng'"></td>
+            <td>
+                <a th:href="@{/delete/*{id}}">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/WEB-INF bị Servlet Container chặn
+Tomcat quy định:
+/WEB-INF/ = protected folder
+Không serve trực tiếp qua HTTP
+
+2. Chỉ ViewResolver truy cập được
+return "order";
+ViewResolver -> /WEB-INF/templates/order.html
+Server nội bộ truy cập -> OK
+Client truy cập trực tiếp -> BLOCK

@@ -1,0 +1,15 @@
+[Client Request]
+        ↓
+GET /bai2/dish
+        ↓
+DishController
+        ↓
+DishService
+        ↓
+List<Dish>
+        ↓
+Model (key = "dish")
+        ↓
+Thymeleaf View (dish_list.html)
+        ↓
+Render HTML cho người dùng

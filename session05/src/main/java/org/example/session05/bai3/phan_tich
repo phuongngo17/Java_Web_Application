@@ -1,0 +1,18 @@
+[ dish_list.html ]
+     ↓ (click "Chỉnh sửa")
+GET /bai3/edit/{id}
+     ↓
+AdminDishController nhận @PathVariable id
+     ↓
+AdminDishService.findById(id)
+     ↓
+IF tồn tại:
+    → addAttribute("dish", object)
+    → return "edit_dish"
+ELSE:
+    → addAttribute("error", "Không tìm thấy món ăn yêu cầu")
+    → return redirect:/bai2/dish
+     ↓
+[ edit-dish.html ]
+     ↓
+Thymeleaf render form + đổ dữ liệu sẵn

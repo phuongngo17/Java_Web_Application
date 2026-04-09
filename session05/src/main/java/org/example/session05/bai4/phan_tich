@@ -1,0 +1,24 @@
+(A) Copy-paste Header/Footer
+- Tái sử dụng: Không có (lặp code)
+- Bảo trì : Khó (sửa 1 chỗ → sửa nhiều file)
+- Tốc độ dev ban đầu: Nhanh
+- Cấu trúc dự án: Rời rạc
+- Mở rộng (thêm page): Copy tiếp → dễ lỗi
+- Debug: Dễ lệch UI giữa các trang
+
+(B) Layout Dialect (layout:decorate
+- Tái sử dụng: Có (DRY)
+- Bảo trì: Dễ (chỉ sửa layout.html)
+- Tốc độ dev ban đầu: Chậm hơn (phải setup)
+- Cấu trúc dự án: Chuẩn, rõ ràng
+- Mở rộng (thêm page): Dùng lại layout
+- Debug: Đồng bộ giao diện
+
+
+- phân tích kỹ thuật:
+Thymeleaf mặc định KHÔNG hiểu các attribute:
+layout:decorate
+layout:fragment
+Đây không phải Standard Dialect, mà là:
+thymeleaf-layout-dialect (thư viện bên ngoài)
+Vì vậy phải đăng ký trong SpringTemplateEngine ở mã java

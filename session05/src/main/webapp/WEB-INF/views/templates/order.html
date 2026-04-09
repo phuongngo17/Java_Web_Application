@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Order</title>
+</head>
+<body>
+
+<h2>Đặt món nhanh</h2>
+
+<table border="1">
+    <tr>
+        <th>Tên món</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+    </tr>
+
+    <tr>
+        <td>Phở bò</td>
+        <td>50000</td>
+        <td>2</td>
+        <td>100000</td>
+    </tr>
+
+    <tr th:each="item : ${orders}">
+        <td th:text="${item.name}">Tên món</td>
+        <td th:text="${item.price}">0</td>
+        <td th:text="${item.quantity}">0</td>
+        <td th:text="${item.total}">0</td>
+    </tr>
+</table>
+
+<h3>
+    Tổng tiền:
+    <span th:text="${total}">100000</span>
+</h3>
+
+</body>
+</html>
