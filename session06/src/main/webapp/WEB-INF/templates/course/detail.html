@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <title>Chi tiet khoa hoc</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 th:text="${course.name}">Ten khoa hoc</h1>
+    <p><strong>Ma khoa:</strong> <span th:text="${course.code}"></span></p>
+    <p><strong>Lo trinh hoc:</strong> <span th:text="${course.description}"></span></p>
+    <p><strong>Giang vien:</strong> <span th:text="${course.instructor}"></span></p>
+    <p><strong>Thoi luong:</strong> <span th:text="${course.duration}"></span></p>
+    <p><strong>Hoc phi:</strong> <span th:text="${#numbers.formatDecimal(course.fee, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></span></p>
+
+    <span class="full-label" th:if="${course.full}">HET CHO</span>
+
+    <p class="top-margin">
+        <a th:href="@{/course/list}">Quay lai danh sach</a>
+    </p>
+</section>
+</body>
+</html>

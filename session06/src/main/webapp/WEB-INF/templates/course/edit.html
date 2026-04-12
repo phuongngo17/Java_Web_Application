@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <title>Cap nhat khoa hoc</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>Cap nhat thong tin khoa hoc</h1>
+
+    <form class="edit-form" th:object="${course}" th:action="@{/course/edit}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{code}">
+        <input type="hidden" th:field="*{name}">
+        <input type="hidden" th:field="*{level}">
+        <input type="hidden" th:field="*{description}">
+        <input type="hidden" th:field="*{instructor}">
+        <input type="hidden" th:field="*{duration}">
+        <input type="hidden" th:field="*{studentCount}">
+        <input type="hidden" th:field="*{capacity}">
+
+        <label for="fee">Hoc phi</label>
+        <input id="fee" type="number" min="0" step="1000" th:field="*{fee}" required>
+
+        <label for="startDate">Ngay khai giang</label>
+        <input id="startDate" type="date" th:field="*{startDate}" required>
+
+        <div class="form-actions">
+            <button type="submit">Luu thay doi</button>
+            <a th:href="@{/course/list}">Huy</a>
+        </div>
+    </form>
+</section>
+</body>
+</html>

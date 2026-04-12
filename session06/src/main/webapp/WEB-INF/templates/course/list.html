@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <title>Danh sach khoa hoc</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>Danh sach khoa hoc</h1>
+
+    <div th:if="${successMessage}" class="alert success" th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert error" th:text="${errorMessage}"></div>
+
+    <form class="search-form" th:action="@{/course/list}" method="get">
+        <label for="level">Level</label>
+        <select id="level" name="level">
+            <option value="ALL" th:selected="${selectedLevel == 'ALL'}">Tat ca</option>
+            <option value="Beginner" th:selected="${selectedLevel == 'Beginner'}">Beginner</option>
+            <option value="Intermediate" th:selected="${selectedLevel == 'Intermediate'}">Intermediate</option>
+            <option value="Advanced" th:selected="${selectedLevel == 'Advanced'}">Advanced</option>
+        </select>
+
+        <label for="maxFee">Hoc phi toi da</label>
+        <input id="maxFee" type="number" min="0" name="maxFee" th:value="${maxFee}">
+        <button type="submit">Tim kiem</button>
+    </form>
+
+    <p th:if="${#lists.isEmpty(courses)}" class="empty-message">
+        Hien chua co lop hoc phu hop voi trinh do nay
+    </p>
+
+    <table th:if="${!#lists.isEmpty(courses)}">
+        <thead>
+        <tr>
+            <th>Ma khoa</th>
+            <th>Ten khoa hoc</th>
+            <th>Level</th>
+            <th>Hoc phi</th>
+            <th>Khai giang</th>
+            <th>Hanh dong</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.code}"></td>
+            <td th:text="${course.name}"></td>
+            <td th:text="${course.level}"></td>
+            <td th:text="${#numbers.formatDecimal(course.fee, 0, 'COMMA', 0, 'POINT') + ' VNĐ'}"></td>
+            <td th:text="${course.startDate}"></td>
+            <td class="actions">
+                <a th:href="@{/course/detail/{code}(code=${course.code})}">Chi tiet</a>
+                <a th:href="@{/course/edit/{id}(id=${course.id})}">Sua</a>
+                <form th:action="@{/course/delete/{id}(id=${course.id})}" method="post">
+                    <button type="submit" class="danger">Huy khoa hoc</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

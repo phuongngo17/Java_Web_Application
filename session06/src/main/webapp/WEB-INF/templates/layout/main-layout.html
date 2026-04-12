@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title layout:title-pattern="$CONTENT_TITLE - EDU-PATH">EDU-PATH</title>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+</head>
+<body>
+<header class="header">
+    <div class="brand">EDU-PATH Center</div>
+    <p class="slogan">Mo lo trinh hoc tieng Anh theo muc tieu cua ban</p>
+</header>
+
+<nav class="navbar">
+    <a th:href="@{/course/list}">Danh sach khoa hoc</a>
+    <a th:href="@{/course/consult}">Dang ky tu van</a>
+</nav>
+
+<main class="container" layout:fragment="content">
+    <!-- Content from child templates -->
+</main>
+</body>
+</html>

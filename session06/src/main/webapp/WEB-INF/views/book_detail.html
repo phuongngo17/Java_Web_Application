@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1 th:text="${title}"></h1>
+
+<div th:if="${book != null}">
+    <p>ID: <span th:text="${book.id}"></span></p>
+    <p>Tên: <span th:text="${book.name}"></span></p>
+    <p>Tác giả: <span th:text="${book.author}"></span></p>
+    <p>Giá: <span th:text="${book.price}"></span></p>
+</div>
+
+<a th:href="@{/books}">Quay lại</a>
+
+</body>
+</html>
