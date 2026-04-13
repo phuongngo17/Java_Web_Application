@@ -1,0 +1,16 @@
+name của input không trùng với field trong POJO
+Spring binding dựa vào name attribute
+Nó sẽ tìm setter: setRestaurantName() -> k tồn tại
+-> Không map được -> name = null
+
+Checkbox trong HTML có cơ chế đặc biệt:
+Quan trọng:
+Nếu không tick -> k gửi gì lên server
+Nếu tick -> gửi active=on (mặc định)
+Spring cần:
+true / false
+hoặc "on" (có thể convert)
+"Mở_cửa" -> không convert được sang boolean
+-> có thể:
+lỗi binding
+hoặc luôn false

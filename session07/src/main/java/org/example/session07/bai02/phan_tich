@@ -1,0 +1,12 @@
+DRY – Don’t Repeat Yourself
+Đoạn code này bị lặp lại 3 lần:
+List<String> categories = Arrays.asList("Món chính","Đồ uống","Tráng miệng","Topping");
+model.addAttribute("categories", categories);
+DRY yêu cầu:
+“Một logic chỉ nên tồn tại ở một nơi duy nhất”
+
+Dễ quên	Sửa thiếu 1 chỗ -> bug
+Không đồng nhất	Trang có, trang không
+Khó bảo trì	Code rất rối
+Tăng bug QA	Tester sẽ phát hiện mismatch
+-> Maintenance Nightmare (ác mộng bảo trì)
